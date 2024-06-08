@@ -4,11 +4,11 @@ import { Link } from "react-router-dom";
 import "../CSS/index.css";
 
 const URL = import.meta.env.VITE_BASE_URL;
-const NYTKey = process.env.OPENAI_API_KEY;
+const NYTKey = import.meta.env.VITE_NYT_API_KEY;
 
 const Index = ({ articles, setArticles }) => {
-  const [year, setYear] = useState('');
-  const [month, setMonth] = useState('');
+  const [year, setYear] = useState("");
+  const [month, setMonth] = useState("");
   const [error, setError] = useState(null);
 
   const handleSubmit = async (e) => {
@@ -53,15 +53,23 @@ const Index = ({ articles, setArticles }) => {
             <div className="edition">Team 1 Edition</div>
           </div>
         </aside>
-        {error && <div style={{ color: 'red' }}>{error}</div>}
-        {articles.map(article => (
+        {error && <div style={{ color: "red" }}>{error}</div>}
+        {articles.map((article) => (
           <div key={article._id} className="article-container">
             <Link to={`/article/${article._id}`}>
-              <h2 className="title--large main-title">{article.headline.main}</h2>
+              <h2 className="title--large main-title">
+                {article.headline.main}
+              </h2>
             </Link>
             <div className="main-text multi-column">
               <p>{article.snippet}</p>
-              <a href={article.web_url} target="_blank" rel="noopener noreferrer">Read more</a>
+              <a
+                href={article.web_url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Read more
+              </a>
             </div>
           </div>
         ))}
