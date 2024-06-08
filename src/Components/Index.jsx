@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
-import axios from 'axios';
-import { Link } from 'react-router-dom';
-import '../CSS/index.css';
+import React, { useState } from "react";
+import axios from "axios";
+import { Link } from "react-router-dom";
+import "../CSS/index.css";
+
+const URL = import.meta.env.VITE_BASE_URL;
+const NYTKey = process.env.OPENAI_API_KEY;
 
 const Index = ({ articles, setArticles }) => {
   const [year, setYear] = useState('');
@@ -11,15 +14,14 @@ const Index = ({ articles, setArticles }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const apiKey = 'bYrbIvSILpBQKLtyTB5VFmGqwCdZ3N9G';
-      const url = `https://corsproxy.io/?https://api.nytimes.com/svc/archive/v1/${year}/${month}.json?api-key=${apiKey}`;
+      const url = `${URL}/${year}/${month}.json?api-key=${NYTKey}`;
       const response = await axios.get(url);
       const articles = response.data.response.docs.slice(0, 28);
       setArticles(articles);
       setError(null);
     } catch (error) {
-      console.error('Error fetching data:', error);
-      setError('Failed to fetch articles. Please check the year and month.');
+      console.error("Error fetching data:", error);
+      setError("Failed to fetch articles. Please check the year and month.");
     }
   };
 
@@ -28,18 +30,18 @@ const Index = ({ articles, setArticles }) => {
       <main>
         <h1>Journey Times</h1>
         <form onSubmit={handleSubmit} className="search-form">
-          <input 
-            type="number" 
-            placeholder="Enter year" 
-            value={year} 
-            onChange={(e) => setYear(e.target.value)} 
+          <input
+            type="number"
+            placeholder="Enter year"
+            value={year}
+            onChange={(e) => setYear(e.target.value)}
             required
           />
-          <input 
-            type="number" 
-            placeholder="Enter month" 
-            value={month} 
-            onChange={(e) => setMonth(e.target.value)} 
+          <input
+            type="number"
+            placeholder="Enter month"
+            value={month}
+            onChange={(e) => setMonth(e.target.value)}
             required
           />
           <button type="submit">Search</button>
