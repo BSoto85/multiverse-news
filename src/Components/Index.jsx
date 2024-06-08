@@ -3,10 +3,9 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import '../CSS/index.css';
 
-const Index = () => {
+const Index = ({ articles, setArticles }) => {
   const [year, setYear] = useState('');
   const [month, setMonth] = useState('');
-  const [articles, setArticles] = useState([]);
   const [error, setError] = useState(null);
 
   const handleSubmit = async (e) => {
@@ -18,12 +17,12 @@ const Index = () => {
       const articles = response.data.response.docs.slice(0, 28);
       setArticles(articles);
       setError(null);
-    
     } catch (error) {
       console.error('Error fetching data:', error);
       setError('Failed to fetch articles. Please check the year and month.');
     }
   };
+
   return (
     <div className="main__wrapper">
       <main>
@@ -54,15 +53,13 @@ const Index = () => {
         </aside>
         {error && <div style={{ color: 'red' }}>{error}</div>}
         {articles.map(article => (
-          <div key={article._id}>
-            <div className='article-container'>
+          <div key={article._id} className="article-container">
             <Link to={`/article/${article._id}`}>
               <h2 className="title--large main-title">{article.headline.main}</h2>
             </Link>
             <div className="main-text multi-column">
               <p>{article.snippet}</p>
               <a href={article.web_url} target="_blank" rel="noopener noreferrer">Read more</a>
-            </div>
             </div>
           </div>
         ))}
