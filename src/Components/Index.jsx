@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import "../CSS/index.css";
 
 const URL = import.meta.env.VITE_BASE_URL;
-const NYTKey = process.env.OPENAI_API_KEY;
+const NYTKey = import.meta.env.VITE_NYT_API_KEY;
 
 const Index = () => {
   const [year, setYear] = useState("");
@@ -57,7 +57,7 @@ const Index = () => {
         {articles.map((article) => (
           <div key={article._id}>
             <div className="article-container">
-              <Link to={`/article/${article._id}`}>
+              <Link to={`/index/${article.id}`}>
                 <h2 className="title--large main-title">
                   {article.headline.main}
                 </h2>
