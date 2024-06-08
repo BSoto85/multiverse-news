@@ -14,7 +14,7 @@ const Home = () => {
             <span>Wind: 7km/h SSE; Ther: 71°F; Hum: 82%</span>
           </div>
           <header>Journey</header>
-          <Link to="/main" className="button-30">
+          <Link to="/index" className="button-30">
             Enter
           </Link>
         </div>
