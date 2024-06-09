@@ -3,6 +3,7 @@ body {
   font-size: 14px;
   color: #2f2f2f;
   background-color: #f9f7f1;
+  margin-top: -60px;
 }
 header {
   font-family: "Playfair Display", serif;
@@ -12,15 +13,17 @@ header {
   display: inline-block;
   line-height: 72px;
   margin-bottom: 20px;
-  padding-left: 280px;
+  padding-left: 80px;
 }
 p {
   margin-top: 0;
   margin-bottom: 20px;
+  /* padding-right: 40px; */
 }
 .head {
   text-align: center;
   position: relative;
+  margin-bottom: 20px;
 }
 .subhead {
   text-transform: uppercase;
@@ -43,13 +46,13 @@ p {
   line-height: 0;
   word-spacing: -0.31em;
   display: inline-block;
-  margin: 30px 2% 0 2%;
+  margin: 60px 2% 0 2%;
 }
 
 .collumn {
   font-size: 14px;
   line-height: 20px;
-  width: 17.5%;
+  width: 24.5%;
   display: inline-block;
   padding: 0 1% 0 1%;
   vertical-align: top;
@@ -129,12 +132,12 @@ p {
 }
 
 .collumn .headline.hl5 {
-  font-weight: 400;
-  font-size: 32px;
+  font-weight: 300;
+  font-size: 22px;
   text-transform: uppercase;
   font-style: italic;
   box-sizing: border-box;
-  padding: 10px 0 10px 0;
+  padding: 10px 0 10px 10px;
 }
 .collumn .headline.hl6 {
   font-weight: 400;

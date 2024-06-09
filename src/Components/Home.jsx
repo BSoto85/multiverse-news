@@ -3,10 +3,10 @@ import "../CSS/LandingPage.css";
 
 const Home = () => {
   return (
-    <div>
+    // <div>
       <div className="head">
         <div className="headerobjectswrapper">
-          <div className="weatherforcastbox">
+          {/* <div className="weatherforcastbox">
             <span style={{ fontStyle: "italic" }}>
               Weather forecast for the next 24 hours: Plenty of Sunshine
             </span>
@@ -17,7 +17,7 @@ const Home = () => {
           <Link to="/index" className="button-30">
             Enter
           </Link>
-        </div>
+        </div> */}
         <div className="subhead">
           New York, New York - Thursday August 30, 1978 - Seven Pages
         </div>
@@ -26,24 +26,23 @@ const Home = () => {
         <div className="collumns">
           <div className="collumn">
             <div className="head">
-              <span className="headline hl3">Educational Trivia Game</span>
+              <span className="headline hl3">Infinite Possibilities</span>
               <p>
                 <span className="headline hl4">
-                  Go back in time and test your knowledge
+                Explore a vast expanse of news stories from parallel dimensions, where every search leads to a different reality.
                 </span>
               </p>
             </div>
             <p>
-              Choose a category and answer random multiple-choice questions.
-              Learn and explore trivia!
+            Uncover diverse perspectives on current events, historical milestones, and groundbreaking discoveries. With each search, a new story unfolds, offering unique insights and unexpected twists.
             </p>
           </div>
           <div className="collumn">
             <div className="head">
-              <span className="headline hl5">NY Times History Museum</span>
+              <span className="headline hl5">Navigate through multitudes of articles</span>
               <p>
                 <span className="headline hl6">
-                  Explore the evolution of sections over time
+                Dive deep into the fabric of reality and witness the endless possibilities of news and information.
                 </span>
               </p>
             </div>
@@ -69,17 +68,16 @@ const Home = () => {
           <div className="collumn">
             <div className="head">
               <span className="headline hl1">
-                What Happened on My Birthday?
+              Experience the thrill of discovery 
               </span>
               <p>
                 <span className="headline hl2">
-                  Discover historical events on your special day.
+                From breaking news to timeless classics, every story is a portal to a different dimension.
                 </span>
               </p>
             </div>
             <p>
-              Enter your birthday and filter articles to find out what
-              significant events happened on that day in history.
+            Embark on a journey through the multiverse of news and expand your understanding of the world. With the Multiverse News App, the only limit is your imagination."
             </p>
             <figure className="figure">
               <iframe
@@ -97,7 +95,7 @@ const Home = () => {
             </figure>
             {/* <p>Leave that to me. Send a distress signal, and inform the Senate...</p> */}
           </div>
-          <div className="collumn">
+          {/* <div className="collumn">
             <div className="head">
               <span className="headline hl3">Journey</span>
               <p>
@@ -108,7 +106,7 @@ const Home = () => {
               Click the button on top to start your journey and explore all
               these exciting features!...
             </p>
-          </div>
+          </div> */}
           <div className="collumn">
             <div className="head">
               <span className="headline hl1">It wasn't a dream</span>
@@ -130,6 +128,7 @@ const Home = () => {
                 allow="autoplay; fullscreen"
                 allowfullscreen
                 title="Embedded Vimeo Video"
+                style={{ marginLeft: '-120px' }}
               ></iframe>
             </div>
             <p>Hisorical events brought to life...</p>

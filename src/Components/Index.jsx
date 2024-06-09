@@ -6,10 +6,16 @@ import "../CSS/index.css";
 const URL = import.meta.env.VITE_BASE_URL;
 const NYTKey = import.meta.env.VITE_NYT_API_KEY;
 
+const formatDate = (pubDate) => {
+  const date = new Date(pubDate);
+  date.setDate(date.getDate() + 1)
+  return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long'});
+};
 const Index = ({ articles, setArticles }) => {
   const [year, setYear] = useState("");
   const [month, setMonth] = useState("");
   const [error, setError] = useState(null);
+  const [displayDate, setDisplayDate] = useState(formatDate(new Date()));
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -19,19 +25,25 @@ const Index = ({ articles, setArticles }) => {
       const articles = response.data.response.docs.slice(0, 28);
       setArticles(articles);
       setError(null);
+      const formattedDate = articles.length > 0
+      ? formatDate(articles[0].pub_date)
+      : 'No articles found';
+    
+    setDisplayDate(formattedDate);
     } catch (error) {
       console.error("Error fetching data:", error);
       setError("Failed to fetch articles. Please check the year and month.");
+      setDisplayDate('')
     }
   };
 
   return (
     <div className="main__wrapper">
       <main>
-        <h1>Journey Times</h1>
-        <form onSubmit={handleSubmit} className="search-form">
+        <form onSubmit={handleSubmit} className="search">
           <input
             type="number"
+            className="searchTerm"
             placeholder="Enter year"
             value={year}
             onChange={(e) => setYear(e.target.value)}
@@ -39,6 +51,7 @@ const Index = ({ articles, setArticles }) => {
           />
           <input
             type="number"
+            className="searchTerm"
             placeholder="Enter month"
             value={month}
             onChange={(e) => setMonth(e.target.value)}
@@ -47,9 +60,11 @@ const Index = ({ articles, setArticles }) => {
           <button type="submit">Search</button>
         </form>
         <aside>
-          <div>
+         <div>
             <div className="issue">Issue #1</div>
-            <div className="date">Tuesday, 08 June, 2024</div>
+            <div className={`date ${displayDate !== formatDate(new Date()) ? 'searched-date' : ''}`}>
+              {displayDate || `June, 2024`}
+            </div>
             <div className="edition">Team 1 Edition</div>
           </div>
         </aside>
