@@ -13,6 +13,7 @@ const App = () => {
   return (
     <div>
       <NavBar />
+      {/* <WorldNewsTest /> */}
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/index" element={<IndexPage articles={articles} setArticles={setArticles} setTitle={setTitle}/>} />

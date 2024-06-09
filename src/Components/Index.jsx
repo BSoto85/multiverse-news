@@ -15,6 +15,14 @@ const Index = ({ articles, setArticles, setTitle }) => {
   const [error, setError] = useState(null);
   // const navigate = useNavigate()
 
+const formatDate = (pubDate) => {
+  const date = new Date(pubDate);
+  date.setDate(date.getDate() + 1)
+  return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long'});
+};
+  const [displayDate, setDisplayDate] = useState(formatDate(new Date()));
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -23,9 +31,15 @@ const Index = ({ articles, setArticles, setTitle }) => {
       const articles = response.data.response.docs.slice(0, 28);
       setArticles(articles);
       setError(null);
+      const formattedDate = articles.length > 0
+      ? formatDate(articles[0].pub_date)
+      : 'No articles found';
+    
+    setDisplayDate(formattedDate);
     } catch (error) {
       console.error("Error fetching data:", error);
       setError("Failed to fetch articles. Please check the year and month.");
+      setDisplayDate('')
     }
   };
 
@@ -39,10 +53,10 @@ const Index = ({ articles, setArticles, setTitle }) => {
   return (
     <div className="main__wrapper">
       <main>
-        <h1>Journey Times</h1>
-        <form onSubmit={handleSubmit} className="search-form">
+        <form onSubmit={handleSubmit} className="search">
           <input
             type="number"
+            className="searchTerm"
             placeholder="Enter year"
             value={year}
             onChange={(e) => setYear(e.target.value)}
@@ -50,6 +64,7 @@ const Index = ({ articles, setArticles, setTitle }) => {
           />
           <input
             type="number"
+            className="searchTerm"
             placeholder="Enter month"
             value={month}
             onChange={(e) => setMonth(e.target.value)}
@@ -58,23 +73,31 @@ const Index = ({ articles, setArticles, setTitle }) => {
           <button type="submit">Search</button>
         </form>
         <aside>
-          <div>
+         <div>
             <div className="issue">Issue #1</div>
-            <div className="date">Tuesday, 08 June, 2024</div>
+            <div className={`date ${displayDate !== formatDate(new Date()) ? 'searched-date' : ''}`}>
+              {displayDate || `June, 2024`}
+            </div>
             <div className="edition">Team 1 Edition</div>
           </div>
         </aside>
-        {error && <div style={{ color: 'red' }}>{error}</div>}
-        {articles.map((article, index) => (
-          <div key={index} className="article-container">
-            {/* <Link to={'/details'}> */}
-            <div onClick={() => getTitle(article.headline.main)}>
+        {error && <div style={{ color: "red" }}>{error}</div>}
+        {articles.map((article) => (
+          <div key={article._id}>
+            <div className="article-container">
+              <div onClick={() => getTitle(article.headline.main)}>
               <h2 className="title--large main-title">{article.headline.main}</h2>
             </div>
-            {/* </Link> */}
-            <div className="main-text multi-column">
-              <p>{article.snippet}</p>
-              <a href={article.web_url} target="_blank" rel="noopener noreferrer">Read more</a>
+              <div className="main-text multi-column">
+                <p>{article.snippet}</p>
+                <a
+                  href={article.web_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Read more
+                </a>
+              </div>
             </div>
           </div>
         ))}
