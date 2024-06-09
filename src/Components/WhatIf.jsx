@@ -4,10 +4,12 @@ import OpenAI from "openai";
 const KEY = import.meta.env.VITE_OPENAI_API_KEY;
 const openai = new OpenAI({ apiKey: KEY, dangerouslyAllowBrowser: true });
 
-const WhatIf = ({ selectedArticleContext }) => {
-  const [summary, setSummary] = useState("");
+const WhatIf = ({ article }) => {
+  const [articleSummary, setArticleSummary] = useState("");
   const [summaryButtonSelected, setSummaryButtonSelected] = useState(false);
   const [whatIf, setWhatIf] = useState("");
+  const [whatIfArticle, setWhatIfArticle] = useState("");
+  const [submitButtonClicked, setSubmitButtonClicked] = useState(false);
 
   async function summarizer() {
     const completion = await openai.chat.completions.create({
@@ -15,20 +17,20 @@ const WhatIf = ({ selectedArticleContext }) => {
         {
           role: "system",
           content:
-            "You are a newspaper editor. You take a full article and summarize the main points into 2 paragraphs or less",
+            "You are a newspaper editor. You take a full article and summarize the main points into 1 or 2 paragraphs.",
         },
         {
           role: "user",
-          content: selectedArticleContext,
+          content: article.text,
         },
       ],
       model: "gpt-3.5-turbo-0125",
     });
-    setSummary(completion.choices[0].message.content);
+    setArticleSummary(completion.choices[0].message.content);
     setSummaryButtonSelected(!summaryButtonSelected);
   }
 
-  async function whatIfScenario(settingState) {
+  async function whatIfScenario() {
     const completion = await openai.chat.completions.create({
       messages: [
         {
@@ -38,31 +40,39 @@ const WhatIf = ({ selectedArticleContext }) => {
         },
         {
           role: "user",
-          content: summary + userInput,
+          content: `Input 1: ${articleSummary} Input2: What if ${whatIf}`,
         },
       ],
       model: "gpt-3.5-turbo-0125",
     });
-    settingState(completion.choices[0].message.content);
+    console.log("Response", completion.choices[0].message.content);
+    return completion.choices[0].message.content;
   }
 
   const handleTextChange = (e) => {
     setWhatIf(e.target.value);
   };
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault()
-  //   if(!selectedArticleContext && whatIf)
-  // }
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!whatIf) {
+      window.alert("Please add a 'what if' scenario.");
+    }
+    const retrievingScenario = await whatIfScenario();
+    if (retrievingScenario) setWhatIfArticle(retrievingScenario);
+  };
+
+  console.log("Summary", articleSummary);
+  console.log("What if", whatIf);
+  console.log("What if article", whatIfArticle);
 
   return (
     <div>
-      <button onClick={() => summarizer(setSummary)}>
-        {summaryButtonSelected ? "Full Article" : "Summary"}
-      </button>
-      <p>{summaryButtonSelected ? summary : selectedArticleContext}</p>
-      <div>
-        <form /*onSubmit={handleSubmit}*/ action="submit">
+      <div className="left-container">
+        <button onClick={summarizer}>
+          {summaryButtonSelected ? "Full Article" : "Summary"}
+        </button>
+        <form onSubmit={handleSubmit} action="submit">
           <label htmlFor="what-if-scenario">What if: </label>
           <input
             onChange={handleTextChange}
@@ -70,7 +80,18 @@ const WhatIf = ({ selectedArticleContext }) => {
             value={whatIf}
             type="text"
           />
+          <button>Submit</button>
         </form>
+        <p>{summaryButtonSelected ? articleSummary : article.text}</p>
+      </div>
+      <div className="right-container">
+        {whatIfArticle && submitButtonClicked ? (
+          <p>{whatIfArticle}</p>
+        ) : summaryButtonSelected ? (
+          articleSummary
+        ) : (
+          article.text
+        )}
       </div>
     </div>
   );
