@@ -42,15 +42,15 @@ const Index = ({ articles, setArticles, setTitle }) => {
     }
   };
 
-  function getTitle(titleString) {
-    const alphanumeric = /[a-z0-9]/gi;
-    const words = titleString.split(" ");
-    for (let i = 0; i < words.length; i++) {
-      const newWord = words[i].match(alphanumeric).join("");
-      words[i] = newWord;
+  function getTitle(titleString){
+    const alphanumeric = /[a-z0-9]/gi
+    const words = titleString.split(' ')
+    for(let i = 0; i < words.length; i++){
+      const newWord = words[i].match(alphanumeric).join('')
+      words[i] = newWord
     }
-    setTitle(words.join("+"));
-    navigate("/details");
+    setTitle(words.join("+"))
+    navigate('/details')
   }
 
   return (

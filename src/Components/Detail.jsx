@@ -28,7 +28,7 @@ const Detail = ({ title }) => {
       }
     };
 
-    fetchWorldNews();
+    // fetchWorldNews();
   }, []);
   console.log("WORLD", article);
   console.log("Title", title);
