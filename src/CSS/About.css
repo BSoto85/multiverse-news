@@ -1,0 +1,97 @@
+.about-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .about-dev {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .developer-list {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .developer {
+    margin-bottom: 40px;
+    border-bottom: 2px solid #ddd;
+    padding-bottom: 20px; 
+  }
+  
+  .developer:last-child {
+    border-bottom: none; 
+  }
+  
+  .developer h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+  
+  .github-link {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  .github-link img {
+    width: 120px;
+    height: 120px; 
+    border-radius: 50%;
+    margin-right: 20px; 
+    float: left;
+  }
+  
+  .fun-fact {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-top: 0; 
+  }
+  
+  button {
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+
+  .button-11 {
+    align-items: center;
+    appearance: none;
+    background-color: #fcfcfd;
+    border-radius: 4px;
+    border-width: 0;
+    box-shadow: rgba(45, 35, 66, 0.4) 0 2px 4px,
+      rgba(45, 35, 66, 0.3) 0 7px 13px -3px, #d6d6e7 0 -3px 0 inset;
+    box-sizing: border-box;
+    color: #36395a;
+    cursor: pointer;
+    display: inline-flex;
+    font-family: "JetBrains Mono", monospace;
+    height: 18px;
+    justify-content: center;
+    line-height: 1;
+    list-style: none;
+    overflow: hidden;
+    padding: 16px 16px;
+    /* padding-right: 16px; */
+    position: relative;
+    text-align: left;
+    text-decoration: none;
+    transition: box-shadow 0.15s, transform 0.15s;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+    white-space: nowrap;
+    will-change: box-shadow, transform;
+    font-size: 17px;
+    margin-left: 15px;
+  }
+  

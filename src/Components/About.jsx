@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import "../CSS/About.css"
 
 const About = () => {
   return (
@@ -46,12 +47,10 @@ const About = () => {
           </a>
           <p className="fun-fact">
             {" "}
-            <b>Facts:</b> "Anita Owen, a passionate full-stack developer, is
-            also a devoted mom and longtime DJ who's always thrived in dynamic
-            environments, blending creativity with technical skill. Her journey
-            from the turntables to the terminal, fueled by a love for
-            problem-solving and a dedication to continuous growth, helps her to
-            navigate the world of software development."
+            <b>Facts:</b> "Armando, an innovative full-stack developer, hails from the vibrant city of Queens, NY. 
+            With a knack for merging artistic vision with coding prowess, his journey from graphic 
+            design to software engineering is driven by a passion for creativity and problem-solving.
+             His commitment to learning and growth allows him to excel in the ever-evolving tech landscape."
           </p>
         </li>
         <li className="developer">
@@ -78,8 +77,8 @@ const About = () => {
           </p>
         </li>
       </ul>
-      <Link to={"/creations"}>
-        <button>Back to art</button>
+      <Link to={"/"}>
+        <button className="button-11">Back to Home</button>
       </Link>
     </div>
   );
