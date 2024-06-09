@@ -5,6 +5,7 @@ import IndexPage from "./Pages/IndexPage";
 import DetailsPage from "./Pages/DetailsPage";
 import AboutPage from "./Pages/AboutPage";
 import { useState } from "react";
+import WorldNewsTest from "./Components/WorldNewsTest";
 
 const App = () => {
   const [selectedArticle, setSelectedArticle] = useState({});
@@ -12,11 +13,12 @@ const App = () => {
   return (
     <div>
       <NavBar />
+      {/* <WorldNewsTest /> */}
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/index" element={<IndexPage />} />
         <Route
-          path="/index/:id"
+          path="/details"
           element={
             <DetailsPage
               selectedArticle={selectedArticle}

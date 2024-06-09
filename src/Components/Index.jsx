@@ -57,7 +57,7 @@ const Index = () => {
         {articles.map((article) => (
           <div key={article._id}>
             <div className="article-container">
-              <Link to={`/index/${article.id}`}>
+              <Link to={"/details"}>
                 <h2 className="title--large main-title">
                   {article.headline.main}
                 </h2>
