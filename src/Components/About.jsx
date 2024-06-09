@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "../CSS/About.css"
+import "../CSS/About.css";
 
 const About = () => {
   return (
@@ -15,7 +15,7 @@ const About = () => {
             target="_blank"
           >
             <img
-              src="https://res.cloudinary.com/dnqfg86zq/image/upload/v1717880292/dkaquzxxmxtdcp8rxy4q.jpg"
+              src="https://res.cloudinary.com/dnqfg86zq/image/upload/t_Fill300x300/v1717880292/dkaquzxxmxtdcp8rxy4q.jpg"
               alt="Anita!"
               width="300"
               height="300"
@@ -47,10 +47,12 @@ const About = () => {
           </a>
           <p className="fun-fact">
             {" "}
-            <b>Facts:</b> "Armando, an innovative full-stack developer, hails from the vibrant city of Queens, NY. 
-            With a knack for merging artistic vision with coding prowess, his journey from graphic 
-            design to software engineering is driven by a passion for creativity and problem-solving.
-             His commitment to learning and growth allows him to excel in the ever-evolving tech landscape."
+            <b>Facts:</b> "Armando, an innovative full-stack developer, hails
+            from the vibrant city of Queens, NY. With a knack for merging
+            artistic vision with coding prowess, his journey from graphic design
+            to software engineering is driven by a passion for creativity and
+            problem-solving. His commitment to learning and growth allows him to
+            excel in the ever-evolving tech landscape."
           </p>
         </li>
         <li className="developer">
@@ -80,7 +82,6 @@ const About = () => {
       <Link to={"/"}>
         <button className="button-11">Back to Home</button>
       </Link>
-
     </div>
   );
 };

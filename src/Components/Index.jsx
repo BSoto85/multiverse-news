@@ -60,7 +60,7 @@ const Index = ({ articles, setArticles, setTitle }) => {
           <input
             type="number"
             className="searchTerm"
-            placeholder="Enter year"
+            placeholder="Year"
             value={year}
             onChange={(e) => setYear(e.target.value)}
             required
@@ -68,7 +68,7 @@ const Index = ({ articles, setArticles, setTitle }) => {
           <input
             type="number"
             className="searchTerm"
-            placeholder="Enter month"
+            placeholder="Month"
             value={month}
             onChange={(e) => setMonth(e.target.value)}
             required

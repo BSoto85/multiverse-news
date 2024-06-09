@@ -61,6 +61,7 @@ const WhatIf = ({ article }) => {
     const retrievingScenario = await whatIfScenario();
     if (retrievingScenario) setWhatIfArticle(retrievingScenario);
     setSubmitButtonClicked(true);
+    setWhatIf("");
   };
 
   console.log("Summary", articleSummary);
@@ -69,10 +70,10 @@ const WhatIf = ({ article }) => {
 
   return (
     <div className="column">
-    <div className="left-container article-container">
-    <div className="form-container">
+      <div className="left-container article-container">
+        <div className="form-container">
           <button className="submit-button" onClick={summarizer}>
-            {summaryButtonSelected ? "Full Article" : "Summary"}
+            {summaryButtonSelected ? "Full Article" : "Summarize"}
           </button>
           <form onSubmit={handleSubmit} action="submit" className="inline-form">
             <label htmlFor="what-if-scenario">What if:</label>
@@ -86,17 +87,16 @@ const WhatIf = ({ article }) => {
             <button className="submit-button">Submit</button>
           </form>
         </div>
-      
-      <p>{summaryButtonSelected ? articleSummary : article.text}</p>
-    </div>
-    {submitButtonClicked && (
-      <div className="right-container">
-        <p>{whatIfArticle}</p>
 
+        <p>{summaryButtonSelected ? articleSummary : article.text}</p>
       </div>
-    )}
-  </div>
-);
+      {submitButtonClicked && (
+        <div className="right-container">
+          <p>{whatIfArticle}</p>
+        </div>
+      )}
+    </div>
+  );
 };
 
 export default WhatIf;
