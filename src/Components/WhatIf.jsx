@@ -21,7 +21,7 @@ const WhatIf = ({ article }) => {
         },
         {
           role: "user",
-          content: article.text,
+          content: `${article.title}\n${article.text}`,
         },
       ],
       model: "gpt-3.5-turbo-0125",
@@ -83,17 +83,16 @@ const WhatIf = ({ article }) => {
           />
           <button>Submit</button>
         </form>
-        <p>{summaryButtonSelected ? articleSummary : article.text}</p>
+        <p>
+          {summaryButtonSelected
+            ? articleSummary
+            : `${article.title}\n${article.text}`}
+        </p>
       </div>
       <div className="right-container">
         {console.log("button", submitButtonClicked)}
         {console.log("newarticle", whatIfArticle)}
-
-        {whatIfArticle && submitButtonClicked ? (
-          <p>{whatIfArticle}</p>
-        ) : summaryButtonSelected ? null : (
-          article.text
-        )}
+        {whatIfArticle && submitButtonClicked && <p>{whatIfArticle}</p>}
       </div>
     </div>
   );
