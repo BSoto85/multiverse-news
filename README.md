@@ -1,31 +1,70 @@
-# Basic React Starter
 
-You can use this starter to create any ReactJS app you would like.
-Unlike when you use `npm create vite@latest your-app-name -- --template react`,
+# MultiVerse News
 
-This repo has removed all of the unwanted starter code that is normally included when using `npm` to create an application.
+## Introduction
 
-## Getting started
+MultiVerse News is an innovative React application that combines the New York Times (NYT) API with other news sources' APIs to simulate how different historical events might have unfolded if specific changes had occurred. Users can input "what if" scenarios based on real news events, and the app will use data from various news sources to visualize potential alternate timelines.
 
-- `clone` this application
-- change the name of this directory to a name that refers to your current project. Don't just leave it as `react-basic-starter`
-  _Hint:_ In the terminal, type `mv react-basic-starter new-name-of-your-app`
-- `cd` into the app
-- in the terminal run `git remote remove origin` in order to remove any connection to this Github folder.
+[Deployed Netlify link](https:)
+[Deployed Render Link](https:)
 
-- run `npm install`
-- to start the project, run `npm run dev`
-- no navigate to `localhost:3000` and you will see the app
-- Now you are ready to code
 
-If you would like to connect this afterwards to your personal Github then:
+## Getting Started
 
-- go to your Github account in the browser
-- create a new repo and give it a name
-- make sure the repo is public and click `Create Repository`
-- copy the instructions under the title `…or push an existing repository from the command line`
-- paste the commands in your terminal
+To set up and run the app on your local machine, follow these steps:
 
-You have now connected your project to the repo.
+#### Frontend Setup
 
-**You have the ability to clone this repo over and over to create your own projects. Just remember to change the name of the folder so that you do not have duplicates**
+1. **Clone the Frontend Repository**: Fork and clone the [frontend repository](https://github.com/BSoto85/multiverse-news) to your local machine.
+```
+git clone https://github.com/BSoto85/multiverse-news
+cd multiverse-news
+```
+
+2. **Install Dependencies**: Navigate to the project directory and install the necessary dependencies.
+
+``````
+npm install
+``````
+
+3. **Run the Frontend Application**: Start the frontend development server to run the application locally.
+```
+npm run dev
+```
+
+4. **Access the App**: Open your web browser and go to http://localhost:3000/ to access the app.
+
+## Usage Instructions
+Open the application in your browser.
+Enter a historical event and a hypothetical change.
+Explore the generated alternate timeline based on real news data.
+
+## Features
+**Interactive Simulations**: Input alternate history scenarios and visualize potential outcomes.
+
+**Multiple News Sources Integration**: Combines data from the NYT API and other news APIs for accurate simulations.
+
+**User-Friendly Interface**: Easy to navigate and input scenarios.
+
+**Responsive Design**: Optimized for both desktop and mobile devices.
+
+## User Stories:
+
+As a history buff, I want to input an event and a specific change, so I can see how events might have unfolded differently and gain a deeper understanding of cause and effect.
+
+As a student, I want to input various historical changes and see their outcomes, so I can better understand the relevance of history to the present and future.
+
+As a curious mind interested in history, I want to explore alternate timelines based on real news events, so I can satisfy my curiosity about "what if" scenarios and learn about potential outcomes.
+
+As a teacher, I want my students to propose their own "what if" scenarios and explore the results, so they can develop critical thinking skills and a deeper understanding of historical cause and effect.
+
+As a user, I want to access simulations on both desktop and mobile devices, so I can explore historical scenarios conveniently from any device.
+
+As a user interested in historical documentaries and novels, I want to visualize the ripple effects of specific historical decisions, so I can appreciate the complexity of historical events and their long-term impacts.
+
+
+### Acknowledgments
+Thanks to the New York Times for their API.
+
+### Contributing
+We welcome and appreciate contributions to enhance the MultiVerse News app. Feel free to open issues, submit pull requests, or reach out to us with feedback and suggestions.
