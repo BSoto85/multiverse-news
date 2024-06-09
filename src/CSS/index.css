@@ -650,7 +650,8 @@ padding: .5rem;
   left: 50%;
   transform: translate(-50%, -50%);
 }
-/* .headerobjectswrapper {
-  display: flex;
-  margin-right: 300px;
-} */
+.headerobjectswrapper {
+  /* x */
+  margin-top: 60px;
+  padding-top: 10px;
+}

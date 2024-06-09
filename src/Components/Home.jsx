@@ -132,7 +132,7 @@ const Home = () => {
                 style={{ marginLeft: '-120px' }}
               ></iframe>
             </div>
-            <p>Hisorical events brought to life...</p>
+            {/* <p>Hisorical events brought to life...</p> */}
           </div>
         </div>
       </div>
