@@ -68,34 +68,35 @@ const WhatIf = ({ article }) => {
   console.log("What if article", whatIfArticle);
 
   return (
-    <div>
-      <div className="left-container">
-        <button onClick={summarizer}>
-          {summaryButtonSelected ? "Full Article" : "Summary"}
-        </button>
-        <form onSubmit={handleSubmit} action="submit">
-          <label htmlFor="what-if-scenario">What if: </label>
-          <input
-            onChange={handleTextChange}
-            id="what-if-scenario"
-            value={whatIf}
-            type="text"
-          />
-          <button>Submit</button>
-        </form>
-        <p>
-          {summaryButtonSelected
-            ? articleSummary
-            : `${article.title}\n${article.text}`}
-        </p>
-      </div>
-      <div className="right-container">
-        {console.log("button", submitButtonClicked)}
-        {console.log("newarticle", whatIfArticle)}
-        {whatIfArticle && submitButtonClicked && <p>{whatIfArticle}</p>}
-      </div>
+    <div className="column">
+    <div className="left-container article-container">
+    <div className="form-container">
+          <button className="submit-button" onClick={summarizer}>
+            {summaryButtonSelected ? "Full Article" : "Summary"}
+          </button>
+          <form onSubmit={handleSubmit} action="submit" className="inline-form">
+            <label htmlFor="what-if-scenario">What if:</label>
+            <input
+              onChange={handleTextChange}
+              id="what-if-scenario"
+              value={whatIf}
+              type="text"
+              className="input-text"
+            />
+            <button className="submit-button">Submit</button>
+          </form>
+        </div>
+      
+      <p>{summaryButtonSelected ? articleSummary : article.text}</p>
     </div>
-  );
+    {submitButtonClicked && (
+      <div className="right-container">
+        <p>{whatIfArticle}</p>
+
+      </div>
+    )}
+  </div>
+);
 };
 
 export default WhatIf;

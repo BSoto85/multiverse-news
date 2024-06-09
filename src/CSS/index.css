@@ -655,3 +655,79 @@ padding: .5rem;
   margin-top: 60px;
   padding-top: 10px;
 }
+/* Container for both columns */
+.column {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px; /* Adjusts the space between the columns */
+  margin: 20px;
+  font-size: 20px;
+}
+
+
+/* Styling for the left container */
+.left-container, .right-container {
+  flex: 1;
+  padding: 20px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  margin: 10px;
+  
+}
+
+/* Ensure some space between the two containers */
+.left-container {
+  margin-right: 10px;
+  border-right: 1px solid #2f2f2f;
+}
+
+.right-container {
+  margin-left: 10px;
+}
+.column > div {
+  flex: 1;
+}
+.article-container,
+.what-if-container {
+  padding: 20px;
+  background-color: #f9f9f9;
+}
+
+/* Add a border to the right side of the left container */
+.article-container {
+  border-right: 2px solid #ccc;
+}
+
+/* Optional: Add a border to the left side of the right container for better visual alignment */
+.what-if-container {
+  border-left: 2px solid #ccc;
+  margin-left: 100px;
+}
+
+/* Flexbox container for form elements */
+.form-container {
+  display: flex;
+  align-items: center;
+  gap: 70px; /* Adjusts the space between form elements */
+}
+
+/* Style for the input text */
+.input-text {
+  padding: 5px;
+  font-size: 14px;
+  margin-left: 10px;
+  padding-left: 20px;
+}
+
+/* Style for the submit button */
+.submit-button {
+  padding: 5px 10px;
+  font-size: 18px;
+}
+
+/* Inline form styling */
+.inline-form {
+  display: flex;
+  align-items: center;
+  gap: 10px; /* Adjusts the space between label, input, and button */
+}
