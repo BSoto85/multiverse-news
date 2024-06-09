@@ -80,6 +80,7 @@ const About = () => {
       <Link to={"/"}>
         <button className="button-11">Back to Home</button>
       </Link>
+
     </div>
   );
 };
