@@ -12,12 +12,11 @@ const NavBar = () => {
           <br />
           <span>Wind: 7km/h SSE; Ther: 71°F; Hum: 82%</span>
         </div>
-        <header>Mutiverse News</header>
-        <Link to="/" className="button-10">
-          Home
+        <Link to="/" className="title-link">
+          <header>Mutiverse News</header>
         </Link>
         <Link to="/index" className="button-10">
-          Enter
+          Get Started
         </Link>
         <Link to="/about" className="button-10">
           About
