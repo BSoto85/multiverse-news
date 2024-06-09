@@ -19,8 +19,7 @@ const Detail = ({ title }) => {
             "x-api-key": apiKey,
           },
         });
-        // const newsWithIds = response.data.news.map(news => ({ ...news, id: uuidv4() }));
-        setWorldNews(response.data.news);
+        setWorldNews(response.data.news[0]);
         setError(null);
       } catch (error) {
         console.error("There was a problem with the fetch operation:", error);
@@ -28,7 +27,7 @@ const Detail = ({ title }) => {
       }
     };
 
-    fetchWorldNews();
+    // fetchWorldNews();
   }, []);
 
   // Write another fetch call with the URL from the article returned in worldnews.news[0].url. This will be the variable used in fetch

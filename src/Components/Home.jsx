@@ -80,7 +80,8 @@ const Home = () => {
             Embark on a journey through the multiverse of news and expand your understanding of the world. With the Multiverse News App, the only limit is your imagination."
             </p>
             <figure className="figure">
-              <iframe
+              <img src="https://i.giphy.com/media/v1.Y2lkPTc5MGI3NjExeTFja3VsMHRoaGV2MXppamtwa2Z0MzZlYnJzY3RncTF2Y3RsN3VrcyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/5b9iSaucUKpukkTQpG/giphy.gif" alt="Newspapers" />
+              {/* <iframe
                 src="https://giphy.com/embed/5b9iSaucUKpukkTQpG"
                 width="181"
                 height="180"
@@ -88,10 +89,10 @@ const Home = () => {
                 className="giphy-embed"
                 allowFullScreen
                 title="NY Times History Museum GIF"
-              ></iframe>
-              <figcaption className="figcaption">
+              ></iframe> */}
+              {/* <figcaption className="figcaption">
                 Explore historical front pages.
-              </figcaption>
+              </figcaption> */}
             </figure>
             {/* <p>Leave that to me. Send a distress signal, and inform the Senate...</p> */}
           </div>

@@ -44,9 +44,13 @@ const formatDate = (pubDate) => {
   };
 
   function getTitle(titleString){
-    const formattedString = titleString.split(' ').join("+")
-    console.log(formattedString)
-    setTitle(formattedString)
+    const alphanumeric = /[a-z0-9]/gi
+    const words = titleString.split(' ')
+    for(let i = 0; i < words.length; i++){
+      const newWord = words[i].match(alphanumeric).join('')
+      words[i] = newWord
+    }
+    setTitle(words.join("+"))
     navigate('/details')
   }
 

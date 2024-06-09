@@ -78,9 +78,6 @@ const About = () => {
           </p>
         </li>
       </ul>
-      <Link to={"/creations"}>
-        <button>Back to art</button>
-      </Link>
     </div>
   );
 };
