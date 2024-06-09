@@ -13,7 +13,7 @@ const NavBar = () => {
           <span>Wind: 7km/h SSE; Ther: 71°F; Hum: 82%</span>
         </div> */}
         <Link to="/" className="title-link">
-          <header>Mutiverse News</header>
+          <header>Multiverse News</header>
         </Link>
         <Link to="/index" className="button-10">
           Get Started
