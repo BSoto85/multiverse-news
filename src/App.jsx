@@ -8,13 +8,15 @@ import { useState } from "react";
 
 const App = () => {
   const [articles, setArticles] = useState([]);
+  const [title, setTitle] = useState("")
+
   return (
     <div>
       <NavBar />
       {/* <WorldNewsTest /> */}
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        <Route path="/index" element={<IndexPage articles={articles} setArticles={setArticles} />} />
+        <Route path="/index" element={<IndexPage articles={articles} setArticles={setArticles} setTitle={setTitle}/>} />
         <Route path="/details" element={<DetailsPage articles={articles} />} />
         <Route path="/about" element={<AboutPage />} />
       </Routes>

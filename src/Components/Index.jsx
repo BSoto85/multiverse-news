@@ -1,21 +1,27 @@
-import React, { useState } from "react";
+import { useState } from "react";
+
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom"
 import "../CSS/index.css";
 
 const URL = import.meta.env.VITE_BASE_URL;
 const NYTKey = import.meta.env.VITE_NYT_API_KEY;
+const backendURL = import.meta.env.VITE_EXPRESS_URL
+
+const Index = ({ articles, setArticles, setTitle }) => {
+  const navigate = useNavigate()
+  const [year, setYear] = useState('');
+  const [month, setMonth] = useState('');
+  const [error, setError] = useState(null);
+  // const navigate = useNavigate()
 
 const formatDate = (pubDate) => {
   const date = new Date(pubDate);
   date.setDate(date.getDate() + 1)
   return date.toLocaleDateString('en-US', { year: 'numeric', month: 'long'});
 };
-const Index = ({ articles, setArticles }) => {
-  const [year, setYear] = useState("");
-  const [month, setMonth] = useState("");
-  const [error, setError] = useState(null);
   const [displayDate, setDisplayDate] = useState(formatDate(new Date()));
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -36,6 +42,13 @@ const Index = ({ articles, setArticles }) => {
       setDisplayDate('')
     }
   };
+
+  function getTitle(titleString){
+    const formattedString = titleString.split(' ').join("+")
+    console.log(formattedString)
+    setTitle(formattedString)
+    navigate('/details')
+  }
 
   return (
     <div className="main__wrapper">
@@ -72,11 +85,9 @@ const Index = ({ articles, setArticles }) => {
         {articles.map((article) => (
           <div key={article._id}>
             <div className="article-container">
-              <Link to={"/details"}>
-                <h2 className="title--large main-title">
-                  {article.headline.main}
-                </h2>
-              </Link>
+              <div onClick={() => getTitle(article.headline.main)}>
+              <h2 className="title--large main-title">{article.headline.main}</h2>
+            </div>
               <div className="main-text multi-column">
                 <p>{article.snippet}</p>
                 <a

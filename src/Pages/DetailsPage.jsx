@@ -1,20 +1,10 @@
 import React from "react";
 import Detail from "../Components/Detail";
 
-const DetailsPage = ({
-  selectedArticle,
-  setSelectedArticle,
-  selectedArticleContext,
-  setSelectedArticleContext,
-}) => {
+const DetailsPage = ({title}) => {
   return (
     <div>
-      <Detail
-        selectedArticle={selectedArticle}
-        setSelectedArticle={setSelectedArticle}
-        selectedArticleContext={selectedArticleContext}
-        setSelectedArticleContext={setSelectedArticleContext}
-      />
+      <Detail title={title}/>
     </div>
   );
 };

@@ -1,14 +1,12 @@
-import puppeteer from "puppeteer";
+// import puppeteer from "puppeteer";
 
-export async function getArticleText(){
+export async function getArticleText(link){
     // Launch the browser and open a new blank page
     const browser = await puppeteer.launch();
     const page = await browser.newPage();
   
     // Navigate the page to a URL
-    await page.goto(
-      "https://www.nytimes.com/2024/06/05/us/wwii-veteran-dies-dday-event.html"
-    );
+    await page.goto(link);
   
     // Set screen size
     await page.setViewport({ width: 1080, height: 1024 });
@@ -40,11 +38,12 @@ export async function getArticleText(){
         .map((element) => element.textContent)
         .join("\n");
     });
-    // console.log(content);
   
     // Print the full title and content
     // console.log(`Title: ${title}`);
     // console.log(`Content: ${content}`);
   
     await browser.close();
+    return content
   };
+
