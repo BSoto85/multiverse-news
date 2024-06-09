@@ -1,10 +1,10 @@
 import React from "react";
 import Index from "../Components/Index";
 
-const IndexPage = ({ articles, setArticles}) => {
+const IndexPage = ({ articles, setArticles, setTitle }) => {
   return (
     <div>
-      <Index articles={articles} setArticles={setArticles} />
+      <Index articles={articles} setArticles={setArticles} setTitle={setTitle} />
     </div>
   );
 };

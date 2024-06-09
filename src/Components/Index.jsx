@@ -1,15 +1,19 @@
-import React, { useState } from "react";
+import { useState } from "react";
+
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom"
 import "../CSS/index.css";
 
 const URL = import.meta.env.VITE_BASE_URL;
-const NYTKey = process.env.OPENAI_API_KEY;
+const NYTKey = import.meta.env.VITE_NYT_API_KEY;
+const backendURL = import.meta.env.VITE_EXPRESS_URL
 
-const Index = ({ articles, setArticles }) => {
+const Index = ({ articles, setArticles, setTitle }) => {
+  const navigate = useNavigate()
   const [year, setYear] = useState('');
   const [month, setMonth] = useState('');
   const [error, setError] = useState(null);
+  // const navigate = useNavigate()
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -24,6 +28,13 @@ const Index = ({ articles, setArticles }) => {
       setError("Failed to fetch articles. Please check the year and month.");
     }
   };
+
+  function getTitle(titleString){
+    const formattedString = titleString.split(' ').join("+")
+    console.log(formattedString)
+    setTitle(formattedString)
+    navigate('/details')
+  }
 
   return (
     <div className="main__wrapper">
@@ -54,11 +65,13 @@ const Index = ({ articles, setArticles }) => {
           </div>
         </aside>
         {error && <div style={{ color: 'red' }}>{error}</div>}
-        {articles.map(article => (
-          <div key={article._id} className="article-container">
-            <Link to={`/article/${article._id}`}>
+        {articles.map((article, index) => (
+          <div key={index} className="article-container">
+            {/* <Link to={'/details'}> */}
+            <div onClick={() => getTitle(article.headline.main)}>
               <h2 className="title--large main-title">{article.headline.main}</h2>
-            </Link>
+            </div>
+            {/* </Link> */}
             <div className="main-text multi-column">
               <p>{article.snippet}</p>
               <a href={article.web_url} target="_blank" rel="noopener noreferrer">Read more</a>
