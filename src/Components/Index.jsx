@@ -42,15 +42,15 @@ const Index = ({ articles, setArticles, setTitle }) => {
     }
   };
 
-  function getTitle(titleString){
-    const alphanumeric = /[a-z0-9]/gi
-    const words = titleString.split(' ')
-    for(let i = 0; i < words.length; i++){
-      const newWord = words[i].match(alphanumeric).join('')
-      words[i] = newWord
-    }
-    setTitle(words.join("+"))
-    navigate('/details')
+  function getTitle(/*titleString*/) {
+    // const alphanumeric = /[a-z0-9]/gi
+    // const words = titleString.split(' ')
+    // for(let i = 0; i < words.length; i++){
+    //   const newWord = words[i].match(alphanumeric).join('')
+    //   words[i] = newWord
+    // }
+    // setTitle(words.join("+"))
+    navigate("/details");
   }
 
   return (
@@ -92,7 +92,7 @@ const Index = ({ articles, setArticles, setTitle }) => {
         {articles.map((article) => (
           <div key={article._id}>
             <div className="article-container">
-              <div onClick={() => getTitle(article.headline.main)}>
+              <div onClick={() => getTitle(/*article.headline.main*/)}>
                 <h2 className="title--large main-title">
                   {article.headline.main}
                 </h2>

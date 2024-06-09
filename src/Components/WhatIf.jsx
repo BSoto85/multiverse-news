@@ -21,7 +21,7 @@ const WhatIf = ({ article }) => {
         },
         {
           role: "user",
-          content: article.text,
+          content: `${article.title}\n${article.text}`,
         },
       ],
       model: "gpt-3.5-turbo-0125",
@@ -92,6 +92,7 @@ const WhatIf = ({ article }) => {
     {submitButtonClicked && (
       <div className="right-container">
         <p>{whatIfArticle}</p>
+
       </div>
     )}
   </div>
