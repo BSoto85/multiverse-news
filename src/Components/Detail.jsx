@@ -1,10 +1,10 @@
 import React from "react";
 import WhatIf from "./WhatIf";
 
-const Detail = () => {
+const Detail = ({ selectedArticleContext, setSelectedArticleContext }) => {
   return (
     <div>
-      <WhatIf />l
+      <WhatIf selectedArticleContext={selectedArticleContext} />
     </div>
   );
 };

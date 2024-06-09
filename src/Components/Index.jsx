@@ -70,21 +70,23 @@ const Index = ({ articles, setArticles }) => {
         </aside>
         {error && <div style={{ color: "red" }}>{error}</div>}
         {articles.map((article) => (
-          <div key={article._id} className="article-container">
-            <Link to={`/article/${article._id}`}>
-              <h2 className="title--large main-title">
-                {article.headline.main}
-              </h2>
-            </Link>
-            <div className="main-text multi-column">
-              <p>{article.snippet}</p>
-              <a
-                href={article.web_url}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Read more
-              </a>
+          <div key={article._id}>
+            <div className="article-container">
+              <Link to={"/details"}>
+                <h2 className="title--large main-title">
+                  {article.headline.main}
+                </h2>
+              </Link>
+              <div className="main-text multi-column">
+                <p>{article.snippet}</p>
+                <a
+                  href={article.web_url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Read more
+                </a>
+              </div>
             </div>
           </div>
         ))}
