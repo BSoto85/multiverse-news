@@ -5,12 +5,12 @@ import { useEffect, useState } from "react";
 const searchURL = import.meta.env.VITE_BASE_SEARCH_URL;
 
 const Detail = ({ title }) => {
-  const [worldNews, setWorldNews] = useState([]);
+  const [article, setArticle] = useState({});
   const [error, setError] = useState("");
 
   useEffect(() => {
     const fetchWorldNews = async () => {
-      const url = `${searchURL}?text=${title}`;
+      const url = `${searchURL}?text=${title}&language=en`;
       const apiKey = import.meta.env.VITE_SEARCH_API_KEY;
 
       try {
@@ -19,8 +19,8 @@ const Detail = ({ title }) => {
             "x-api-key": apiKey,
           },
         });
-        // const newsWithIds = response.data.news.map(news => ({ ...news, id: uuidv4() }));
-        setWorldNews(response.data.news);
+        setArticle(response.data.news[0]);
+        console.log(response);
         setError(null);
       } catch (error) {
         console.error("There was a problem with the fetch operation:", error);
@@ -30,24 +30,12 @@ const Detail = ({ title }) => {
 
     fetchWorldNews();
   }, []);
-
-  // Write another fetch call with the URL from the article returned in worldnews.news[0].url. This will be the variable used in fetch
+  console.log("WORLD", article);
+  console.log("Title", title);
 
   return (
     <div>
-      <WhatIf />
-      <div>
-        {error && <div style={{ color: "red" }}>{error}</div>}
-        <ul>
-          {worldNews.map((newsItem, index) => (
-            <li key={index}>
-              <h3>{newsItem.title}</h3>
-              <p>{newsItem.description}</p>
-              {/* <a href={newsItem.url} target="_blank" rel="noopener noreferrer">Read more</a> */}
-            </li>
-          ))}
-        </ul>
-      </div>
+      <WhatIf article={article} />
     </div>
   );
 };
